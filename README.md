@@ -99,9 +99,18 @@ celery 是个处理大量消息的分布式系统，可以做到实时处理的�
 ## 使用姿势
 
 ### 单个 live_id
-    1. 可直接修改 ks_dm 下的 live_id，即可启动
+1. 可直接修改 ks_dm 下的 live_id，即可启动
+```bash
+python ks_dm.py
+```
     
 ### 使用 celery
-    1. 先将需要监控的直播id 写入 redis，默认是 set 类型，详见 celery_ks/send_task，当然，也可以改成其他方式，只需要与 celery_ks/send_task 对应即可。然后执行
-     `python -m celery_ks.send_task` 
-    2. 执行 worker，即 celery_ks/tasks 方法，`python -m celery_ks.task`
+1. 先将需要监控的直播id 写入 redis，默认是 set 类型，详见 celery_ks/send_task，当然，也可以改成其他方式，只需要与 celery_ks/send_task 对应即可。然后执行
+```bash
+python -m celery_ks.send_task
+```
+
+2. 执行 worker，即 celery_ks/tasks 方法，
+```bash
+python -m celery_ks.task
+```
