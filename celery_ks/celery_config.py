@@ -6,7 +6,7 @@
 
 import config
 
-REQUEST_TASK = "crawler.crawler.kuaishou.components.celery_ks.tasks.barrage"
+REQUEST_TASK = "celery_ks.tasks.barrage"
 # BROKER_URL = "amqp://guest:guest@localhost:5672"
 BROKER_URL = config.RABBITMQ_DSN
 
