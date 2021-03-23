@@ -34,7 +34,6 @@ from proto.ks_barrage_pb2 import HeartbeatClient
 from proto.ks_barrage_pb2 import Request
 from proto.ks_barrage_pb2 import ResponseCommon
 
-Flag = True
 debug = False
 
 

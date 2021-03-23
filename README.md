@@ -19,7 +19,7 @@ WebSocket 如何工作
 
 ### 一、弹幕分析
 
-现在快手看弹幕需要登录了。但是我们先不管，至于怎么知道是 websocket 的，就是在 http 上看不到相关接口，就想到了。
+现在快手看弹幕需要登录了，但是我们先不管。至于怎么知道是 websocket 的，就是在 http 上看不到相关接口，就想到了。
 
 这次要说的重点是如何解析弹幕内容
 
@@ -226,21 +226,13 @@ print(hex_data)
 
 通过上面分析过后，我们知道了怎么组装 websocket 客户端要发起的数据包，那接下来就可以发起请求了
 
-因为返回的格式本身就是类似 `b"\x08\xac\x02\x10\x01\x1a\n\x08\xe8\x07\x10\x88'\x18\xa0\x9c\x01 \x9b\xbd\xda\xc9\x84/"` 的二进制数据，我们当然可以将其转成 UTF-8 编码，但是这样转出来，要提取里面的数据是会很麻烦的。
-
-我们做下转换，返回二进制数据 *data* 的十六进制表示形式
-
-```python
-binascii.hexlify(str_).decode("utf8", "ignore")
-```
-
 我这里选用的是 [websocket-client-py3](https://snyk.io/advisor/python/websocket-client-py3)
 
 ```
 pip install websocket-client-py3==0.15.0
 ```
 
-Talk is cheap. 具体实现直接看代码即可
+Talk is cheap. 具体实现直接看代码即可. `ks_barrage.py`
 
 
 

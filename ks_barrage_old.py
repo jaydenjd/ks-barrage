@@ -269,14 +269,15 @@ class KuaishouBarrage(object):
         """
         表示刚刚连接的时候
         """
-        # 刚连接时给服务器发送的消息
-        ws.send(self.send_mess, websocket.ABNF.OPCODE_BINARY)
+        # 刚连接时给服务器发送的消息，下面两种类型传参都可
+        # ws.send(self.send_mess, websocket.ABNF.OPCODE_BINARY)
+        ws.send(bytes(self.send_mess), websocket.ABNF.OPCODE_BINARY)
 
         # 发送心跳包维持连接
         def run():
             # 定时发送心跳包
             while Flag:
-                time.sleep(5)
+                time.sleep(20)
                 # 发送心跳-当前时间戳-毫秒
                 head = [0x08, 0x01, 0x1A, 0x07, 0x08]
                 timestamp = int(time.time() * 1000)
