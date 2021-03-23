@@ -1,115 +1,284 @@
+### 零、WebSocket
 
-## 关于如何开发快手弹幕爬虫
+HTTP 协议是一种无状态的、无连接的、单向的应用层协议。它采用了请求/响应模型。通信请求只能由客户端发起，服务端对请求做出应答处理。
 
-1. 我是参考了两篇文章，https://github.com/py-wuhao/ks_barrage 以及 https://github.com/c782464295/ksdanmu 。
-虽然实际上这两篇文章的代码，我 copy 下来都是没法执行，但还是给了我很多的参考，于是在他们的基础上，我另外写了一个快手弹幕的爬虫，至少目前，这份代码是可以跑起来的，并且我对于部分弹幕做了些解析，只是方法很笨。后续有空再研究。
+这种通信模型有一个弊端：HTTP 协议无法实现服务器主动向客户端发起消息。大多数 Web 应用程序将通过频繁的异步JavaScript和XML（AJAX）请求实现长轮询。轮询的效率低，非常浪费资源（因为必须不停连接，或者 HTTP 连接始终打开）。
 
-## 背景
+WebSocket的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息。
 
-1. 快手直播弹幕是通过 websocket 协议传输的，导致无法通过常规的 requests 库或者 scrapy 来发起请求。
-2. webscoket 目前比较存在的比较通用的两个库：aiowebsocket(异步), websocket-client(同步，如果是 py3 ，pip install websocket-client-py3) 
-3. websocket 于HTTP不同的是，它是需要在一开始先创建连接，这就使得其成为一种有状态的协议，之后通信时可以省略部分状态信息，列入可以只定时发送一个心跳包，服务端就会源源不断返回数据。
+WebSocket 如何工作
+
+| 事件    | 事件处理程序        | 描述                       |
+| :------ | :------------------ | :------------------------- |
+| open    | WebSocket.onopen    | 连接建立时触发             |
+| message | WebSocket.onmessage | 客户端接收服务端数据时触发 |
+| error   | WebSocket.onerror   | 通信发生错误时触发         |
+| close   | WebSocket.onclose   | 连接关闭时触发             |
 
 
-## 需求&难点
-1. 同时监控多场直播弹幕
-2. 做到可定时增加监控的数量
-3. 正确解析弹幕内容(返回的数据，没有规定的格式，所有数据，包括弹幕评论，实时在线人数，点赞人数，直播观众，送礼观众等信息。
-    每次返回的数据长度也不一定。因为从 web 端逆向 js 对弹幕这块的解析代码未成功。只能通过找一些不同数据之间的特征方法来识别，切分。（这个在下面不展开）)
 
-## 尝试方案
+### 一、弹幕分析
 
-### 1. websocket-client
-a. 使用 websocket-client-py3。通过这个同步的库。先创建链接，然后再定时发送心跳包。
-b. 发送的数据时，需要先转成十进制，然后在使用 send 方法的时候， 还得指定 unicode 编码。如
-```python
-import time
-import websocket
-def str2ascii(data) -> list:
-    """
-    返回对应的 ASCII 数值，或者 Unicode 数值
-    :param data: 需要转换的字符串
-    """
-    return [ord(i) for i in data]
-    
-def on_open(ws):
-    """
-    表示刚刚连接的时候
-    """
-    # 刚连接时给服务器发送的消息
-    send_mess = 'xxxxx'
-    ws.send(send_mess, websocket.ABNF.OPCODE_BINARY)
+现在快手看弹幕需要登录了。但是我们先不管，至于怎么知道是 websocket 的，就是在 http 上看不到相关接口，就想到了。
 
-    # 发送心跳包维持连接
-    def run():
-        # 定时发送心跳包
-        while True:
-            time.sleep(5)
-            # 发送心跳-当前时间戳-毫秒
-            head = [0x08, 0x01, 0x1A, 0x07, 0x08]
-            timestamp = int(time.time() * 1000)
-            heartbeat = head + str2ascii(timestamp)
-            ws.send(heartbeat, websocket.ABNF.OPCODE_BINARY)
+这次要说的重点是如何解析弹幕内容
+
+![dm](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/dm.png)
+
+从这张图片可以看到，当我们选择 UTF-8 格式时，基本就能看到这条弹幕的消息了。但如果分析，不能从 UTF-8来分析，而是分析 Hex，也就是 16 进制。
+
+那么我们把 Hex 复制出来
+
+![](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/hex_copy.png)
+
+即可得到如下
+
+```bash
+08b60210011ad2010a043237333512053236e4b8872a4312140a0859474831363937331208e885942ee8b0832c1a17e79c8be4bda0e79a846964e58aa0e4bda0e5a5bde58f8b220854534b4952513d3d380142062003320208042a4f121f0a0f337873396b74333934797467386969120ce6989fe59f8ee5a4a7e597a81a1ee6989fe59f8ee5a4a7e597a8e8b59ee4ba86e8bf99e4b8aae79bb4e692ad22087553566b6e773d3d38024200422d121f0a0f337873396b74333934797467386969120ce6989fe59f8ee5a4a7e597a822087553566b6e773d3d2a0020e8b995c9842f
 ```
- 
-但是有个问题，该库是同步的，而 websocket 是一个长连接，同一个进程里无法切换，因此没法同时监控多场直播弹幕。
 
-后面想到用 python 的多进程，这样可以在一开始监控多场直播，但是没法在启动进程的过程中，再动态增加监控的直播
-```python
-while True:
-    lives = redis_conn.smembers("ks_lives")
-    p = multiprocessing.Pool(len(lives))
-    for i, k in enumerate(lives):
-        p.apply_async(KuaishouBarrage, args=(k,))
-    p.close()
-    p.join()
-    time.sleep(10)
+猜测这种数据应该是使用了 proto 来定义的，这时候我们可以借助一个工具 [protobuf-inspector](https://github.com/mildsunrise/protobuf-inspector)
+
+安装方式很简单：
+
+```bash
+pip3 install protobuf_inspector
 ```
-### 2. aiowebsocket
-这是一个异步的库，想着用它，应该能解决同时监控多场直播的问题。
 
-它的发送消息的方法如下。发送的数据是 str 或者 byte 类型。
+需要注意的是，他分析的是二进制的数据，而我们如果直接从 web 端复制出来的相当于是一个十六进制的字符串，因此需要做点转换
 
 ```python
-async def send(self, message,
-               fin: bool = True, mask: bool = True):
-    """Send message to server """
-
-    if isinstance(message, str):
-        message = message.encode()
-    code = DataFrames.text.value
-    await self.frame.write(fin=fin, code=code, message=message, mask=mask)
-
+import binascii
+hex_data = '08b60210011ad2010a043237333512053236e4b8872a4312140a0859474831363937331208e885942ee8b0832c1a17e79c8be4bda0e79a846964e58aa0e4bda0e5a5bde58f8b220854534b4952513d3d380142062003320208042a4f121f0a0f337873396b74333934797467386969120ce6989fe59f8ee5a4a7e597a81a1ee6989fe59f8ee5a4a7e597a8e8b59ee4ba86e8bf99e4b8aae79bb4e692ad22087553566b6e773d3d38024200422d121f0a0f337873396b74333934797467386969120ce6989fe59f8ee5a4a7e597a822087553566b6e773d3d2a0020e8b995c9842f'
+# unhexlify 返回由十六进制字符串 hexstr 表示的二进制数据
+data = binascii.unhexlify(hex_data)
+# 然后把它用二进制的形式写入文件，记住，不能直接复制到文件中
+with open('my-protobuf', 'wb') as w:
+  w.write(data)
 ```
 
-但快手这边，发送的数据中，有一些参数是固定的，可以通过16进制看出，如果转成字符串，就会是乱码。
+接下来就直接转换了
 
-因此我还是转成字符串，但是启动后却没法接收到返回的弹幕消息。不知道是发送的数据转换有问题，还是我没找到它的正确使用姿势。总之用这个库是失败的。
-
-### 3. celery
-celery 是个处理大量消息的分布式系统，可以做到实时处理的异步任务队列，同时也支持任务调度。
-
-因此我的想法是，用 rabbitmq 作为 broker, 使用 celery 将 live_id 发送 mq，然后 worker 可以去 mq 取任务，当然 worker 的数量也是有限的。
-但它可以通过 `autoscale` 做到自动伸缩 worker，且一场直播结束后，会释放掉这个连接，worker 又可以继续从队列中取出任务消费。
-
-它还有一个好处，应该是可以将结果存储在 RESULT_BACKEND，如将正在直播的 live_id 放在这里，在发任务时，取出对比，然后做到去重的作用。
- 
-
-## 使用姿势
-
-### 单个 live_id
-1. 可直接修改 ks_dm 下的 live_id，即可启动
 ```bash
-python ks_dm.py
-```
-    
-### 使用 celery
-1. 先将需要监控的直播id 写入 redis，默认是 set 类型，详见 celery_ks/send_task，当然，也可以改成其他方式，只需要与 celery_ks/send_task 对应即可。然后执行
-```bash
-python -m celery_ks.send_task
+protobuf_inspector < my-protobuf
 ```
 
-2. 执行 worker，即 celery_ks/tasks 方法，
+结果如下
+
+![](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/proto_inspector.png)
+
+这样就是一个很清晰的 proto 结构了。结合当前的直播内容，我们可以大概看到这段消息体代表的含义
+
 ```bash
-python -m celery_ks.task
+4772 -> 当前直播间人数
+25万 -> 点赞人数
+
+这一段表示某个用户的弹幕评论内容，Zhiye0630999 是该用户的 id，那么 `E5 B0 8F E6 AD AA E7 9A 84 E7 9F A5 E5 8F B6 2E` 这一段表示什么呢？
+
+5 <chunk> = message:
+            2 <chunk> = message:
+                1 <chunk> = "Zhiye0630999"
+                2 <chunk> = bytes (16)
+                    0000   E5 B0 8F E6 AD AA E7 9A 84 E7 9F A5 E5 8F B6 2E                          ................
+            3 <chunk> = bytes (12)
+                0000   E6 88 91 E9 83 BD E5 BF 98 E4 BA 86                                      ............
+            4 <chunk> = "uWmn1g=="
+            7 <varint> = 1
+            8 <chunk> = message:
+                4 <varint> = 3
+                6 <chunk> = message(1 <varint> = 10, 2 <varint> = 1)
+                7 <varint> = 14
+                10 <varint> = 41
 ```
+
+我们转换下，可以发现第一段 `0000` 表示的是用户的昵称，第二段 `0000` 表示的是用户评论的内容
+
+```bash
+In [1]: data = 'E5 B0 8F E6 AD AA E7 9A 84 E7 9F A5 E5 8F B6 2E'.replace(' ', '')
+
+In [2]: binascii.unhexlify(data).decode()
+Out[2]: '小歪的知叶.'
+
+In [3]: data = 'E6 88 91 E9 83 BD E5 BF 98 E4 BA 86'.replace(' ', '')
+
+In [4]: binascii.unhexlify(data).decode()
+Out[4]: '我都忘了'
+```
+
+需要明白的一点是，我们只知道哪个数字标识符对应的字段的类型，但并不知道这个字段代表什么意思，这就需要我们结合返回的内容来自行推测，然后给这个字段命名。
+
+根据数据类型进行 proto 类型转换
+
+```bash
+<varint> -> int64
+<chunk> -> string
+<chunk> = bytes(xxx) -> string
+```
+
+而前面的数字就表示该字段的数字标识符，以 `4 <chunk> = "uWmn1g==`为例，我们知道这个字段为字符串类型，而且我们根据弹幕返回的内容，推测出这是一个 id，那么就可以写成如下
+
+```bash
+message xxx {
+    string id = 4;
+}
+```
+
+如果是缩进的，就代表是嵌套的消息。
+
+以客户端发起连接发送的数据为例子，在这里展示另一种 protobuf_inspector 的用法
+
+```bash
+import binascii
+
+from protobuf_inspector.types import StandardParser
+
+s = '08c8011adc010aac012f6c3869595a58426f49585846475a4b72696e6e594b646d53673579704d6b58745172596f65614377425353705a6f42786c2f556e746f335a58435a39697a737742712f595135734c623355676e48614e396e514b6a65436b4d796b6d6c48737a506d735378794e6877444247417156727656683568486e7745516138357065644e7a69624755556e64586e6649697243432b6d394a6d476f69506e755a504151477a4f32724a46454b593d120b7933544a447a734c354a733a1e5576514e69774c527a6b3834676c46765f31363136343637323130333231'
+
+with open('my-proto', 'wb') as w:
+    w.write(binascii.unhexlify(s))
+
+parser = StandardParser()
+with open('my-proto', 'rb') as fh:
+    output = parser.parse_message(fh, "message")
+print(output)
+```
+
+输出
+
+```bash
+message:
+    1 <varint> = 200
+    3 <chunk> = message:
+        1 <chunk> = "/l8iYZXBoIXXFGZKrinnYKdmSg5ypMkXtQrYoeaCwBSSpZoBxl/Unto3ZXCZ9izswBq/YQ5sLb3UgnHaN9nQKjeCkMykmlHszPmsSxyNhwDBGAqVrvVh5hHnwEQa85pedNzibGUUndXnfIirCC+m9JmGoiPnuZPAQGzO2rJFEKY="
+        2 <chunk> = "y3TJDzsL5Js"
+        7 <chunk> = "UvQNiwLRzk84glFv_1616467210321"
+```
+
+可以看到发起的数据由四个字段组成
+
+- 状态码？：`1 <varint> = 200` 应该是类似状态码，找到几个直播间来观察发现，其是固定的；
+- token:`/l8iYZXBoIXXFGZK...AQGzO2rJFEKY= `这一大段不同的直播间仍然是一样的，但是不同账号登录上去，却是不一样的，所以推测是 token
+- live_id:  这个 `y3TJDzsL5Js`  就很明显，是表示这场直播间的 `live_id`，是由快手后台返回的，不是自己构成的。
+- page_id: `UvQNiwLRzk84glFv_1616467210321` 这一段是由两段字符组成的，后面那段很明显就是毫秒时间戳，前面一段是一个固定的 16 位字符串，但是每次都不一样。
+
+为什么我们可以知道最后一个字段是 page_id 呢？
+
+![page_id](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/page_id.png)
+
+我们在 Session Storage 发现的，这两个值一模一样，因此可以确定下来。
+
+
+
+根据这段请求体，我们定制其对应的 proto；`proto/ks_barrage.proto`
+
+```proto
+syntax = "proto3";
+
+// 首次连接 websocket 发送的请求数据
+message Request {
+  int64 status = 1;
+  message Params {
+    string token = 1;
+    string live_id = 2;
+    string page_id = 7;
+  }
+  Params params = 3;
+}
+```
+
+这个提供一个一键编译所有 proto 的脚本，`proto/compile.sh`
+
+```bash
+# bin/bash
+for FILE in $(find proto -name "*.proto"); # 找到 proto 目录下以 proto 后缀结尾的文件，然后逐个编译
+do
+  python -m grpc_tools.protoc -I . --python_out=.  $FILE
+  echo "python -m grpc_tools.protoc -I . --python_out=.  $FILE";
+done
+```
+
+执行下 `sh proto/compile.sh` 后，就会看到 proto 目录下多了一个 `ks_barrage_pb2.py` 的文件
+
+然后我们就可以组请求了。服务端返回的数据也是类似，先写 proto ，根据把返回的数据用 proto 解析出来。下面会再讲到
+
+```python
+from proto.ks_dm_pb2 import Request
+import binascii
+
+
+def connect_data():
+    req_obj = Request()
+    req_obj.status = 200
+    req_obj.params.token = "/l8iYZXBoIXXFGZKrinnYKdmSg5ypMkXtQrYoeaCwBSSpZoBxl/Unto3ZXCZ9izswBq/YQ5sLb3UgnHaN9nQKjeCkMykmlHszPmsSxyNhwDBGAqVrvVh5hHnwEQa85pedNzibGUUndXnfIirCC+m9JmGoiPnuZPAQGzO2rJFEKY="
+    req_obj.params.live_id = 'y3TJDzsL5Js'
+    req_obj.params.page_id = "UvQNiwLRzk84glFv_1616467210321"
+    return req_obj.SerializeToString()
+
+
+data = connect_data()
+print(data)
+hex_data = binascii.hexlify(data).decode()
+print(hex_data)
+
+```
+
+### 二、发起请求和解析数据
+
+通过上面分析过后，我们知道了怎么组装 websocket 客户端要发起的数据包，那接下来就可以发起请求了
+
+因为返回的格式本身就是类似 `b"\x08\xac\x02\x10\x01\x1a\n\x08\xe8\x07\x10\x88'\x18\xa0\x9c\x01 \x9b\xbd\xda\xc9\x84/"` 的二进制数据，我们当然可以将其转成 UTF-8 编码，但是这样转出来，要提取里面的数据是会很麻烦的。
+
+我们做下转换，返回二进制数据 *data* 的十六进制表示形式
+
+```python
+binascii.hexlify(str_).decode("utf8", "ignore")
+```
+
+我这里选用的是 [websocket-client-py3](https://snyk.io/advisor/python/websocket-client-py3)
+
+```
+pip install websocket-client-py3==0.15.0
+```
+
+Talk is cheap. 具体实现直接看代码即可
+
+
+
+##### 需要注意的点
+
+1. 需要登录账号才能观看弹幕，一个 token 能用多久我也不太清楚。
+2. 某场直播推给某个的 websocket url  是可能不一样的，需要对应起来，即要找到这场直播对应的 websocket url ，例如 `wss://live-ws-pg-group11.kuaishou.com/websocket`，或者 `wss://live-ws-pg-group11.kuaishou.com/websocket`。如果对不上，可能不会返回数据。但是用以前还不需要登录时的那些 token ，就不会有这个问题。
+
+### 三、走过的一些弯路
+
+之前我也是不知道，这些数据是由 proto 定义的，而且还可以用工具转出来分析，结果我就只能自己去组16进制，这个过程极其繁琐，还容易出错。
+
+解析数据的时候，也是根据返回来的 16 进制，又是转  utf-8 ，又是转 base64，各种方式提取，很低级低效，且解析出来的数据还有问题。
+
+具体可以看 `ks_barrage_old.py` 
+
+### 四、charles websocket 显示16进制字符串不全
+
+#### 问题描述
+
+用 charles 抓包 websocket，想把创建连接的请求体的16进制字符串复制出来，发现是不全的，找 charles 上都找到能复制全的方式
+
+![websocket-charles](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/websocket-charles.png)
+
+#### 解决方式
+
+##### 1. 导出为 Websocket MEssages
+
+![](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/save_websocket.png)
+
+接着会在本地生成一堆 websocket 的二进制文件
+
+![](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/websocket_bin.png)
+
+##### 2. 使用 010 Editor 打开
+
+因为我们想看的是创建连接的数据包，也就是第一个，那选择 `websocket_000001_client.bin`，用 `010 Editor` 打开
+
+然后 `全选` -> `Edit` -> `Copy As` -> `Copy as Hex Text`，即可复制出完成的 hex
+
+![](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/010_editor_cp.png)
