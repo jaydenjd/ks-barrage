@@ -193,7 +193,7 @@ class KuaishouBarrage(object):
 
     @property
     def url(self):
-        url = "wss://live-ws-pg-group10.kuaishou.com/websocket"
+        url = "wss://live-ws-pg.kuaishou.com/websocket"
         return url
 
     def start_run(self):
