@@ -1,0 +1,19 @@
+#!/bin/sh
+# 如果命令行提供了文件/目录, 格式化指定的文件/目录, 否则格式化项目发生修改的文件
+# 拷贝到 .git/hooks/pre-commit
+
+if [ "$#" != "0" ]; then
+    PYFILES="$(find $@ -name '*.py')"
+else
+    PYFILES="$(git diff --name-only --diff-filter=AM --cached HEAD | grep \\.py$)"
+fi
+
+
+if test "$PYFILES"
+then
+    # 排除掉自动生成的文件
+    PYFILES=$(find $PYFILES -not -name '*_pb2.py' -not -name '*_pb2_grpc.py')
+    isort -w 120 -fss -sl $PYFILES
+    black -l 120 $PYFILES
+    git add $PYFILES
+fi

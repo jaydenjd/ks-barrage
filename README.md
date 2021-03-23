@@ -1,15 +1,14 @@
 
 ## 关于如何开发快手弹幕爬虫
 
-1. 我是参考了两篇文章，https://github.com/py-wuhao/ks_barrage 以及 https://github.com/c782464295/ksdanmu。虽然实际上这两篇文章的代码，我 copy 下来都是没法执行，但还是给了我很多的参考，于是在他们的基础上，我另外写了一个快手弹幕的爬虫，至少目前，这份代码是可以跑起来的，并且我对于部分弹幕做了些解析，只是方法很笨。后续有空再研究。
+1. 我是参考了两篇文章，https://github.com/py-wuhao/ks_barrage 以及 https://github.com/c782464295/ksdanmu 。
+虽然实际上这两篇文章的代码，我 copy 下来都是没法执行，但还是给了我很多的参考，于是在他们的基础上，我另外写了一个快手弹幕的爬虫，至少目前，这份代码是可以跑起来的，并且我对于部分弹幕做了些解析，只是方法很笨。后续有空再研究。
 
 ## 背景
 
 1. 快手直播弹幕是通过 websocket 协议传输的，导致无法通过常规的 requests 库或者 scrapy 来发起请求。
 2. webscoket 目前比较存在的比较通用的两个库：aiowebsocket(异步), websocket-client(同步，如果是 py3 ，pip install websocket-client-py3) 
 3. websocket 于HTTP不同的是，它是需要在一开始先创建连接，这就使得其成为一种有状态的协议，之后通信时可以省略部分状态信息，列入可以只定时发送一个心跳包，服务端就会源源不断返回数据。
-
-
 
 
 ## 需求&难点

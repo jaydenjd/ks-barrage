@@ -10,7 +10,7 @@ from celery_ks import BaseCelery
 from celery_ks.celery_config import REQUEST_NAME
 from celery_ks.celery_config import REQUEST_TASK
 from celery_ks.celery_config import ROUNTING_KEY
-from ks_dm import KuaishouBarrage
+from ks_dm_old import KuaishouBarrage
 
 logger = get_task_logger(__name__)
 app = BaseCelery().app

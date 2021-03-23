@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+
+message BarrageContent {
+  // 实时观众人数
+  string audience_num = 1;
+  // 累计点赞数
+  string like_num = 2;
+  repeated BarrageMessage barrage_message = 5;
+  //  Gift gift = 9;
+}
+
+// 弹幕内容类型
+enum ContentType {
+  UNKNOWN_CONTENT = 0;
+  // 评论
+  COMMENT = 1;
+  // 点亮
+  LIKE = 2;
+}
+message BarrageMessage {
+  Audience audience = 2;
+  string comment_content = 3;
+  string barrage_id = 4;
+  ContentType content_type = 7;
+  //  string unknown = 8;
+}
+
+// 弹幕中的观众排行版
+message AudienceRank {
+
+}
+
+// 观众信息
+message Audience {
+  // eid
+  string eid = 1;
+  // 用户昵称
+  string name = 2;
+  // 用户头像链接
+  string avatar_url = 3;
+}
+
+
+message Barrage {
+  BarrageType Barrage_type = 1;
+  int64 status = 2;
+  BarrageContent barrage_content = 3;
+  int64 timestamp = 4;
+}
+
+// 首次连接 websocket 发送的请求数据
+message Request {
+  int64 status = 1;
+  message Params {
+    string token = 1;
+    string live_id = 2;
+    string page_id = 7;
+  }
+  Params params = 3;
+}
+
+// 客户端心跳包
+message HeartbeatClient {
+  int64 status = 1;
+  message Params {
+    int64 timestamp = 1;
+  }
+  Params params = 3;
+}
+
+// 弹幕类型，根据返回的第一个字段来判断
+enum BarrageType {
+  BARRAGE_TYPE_UNKNOWN = 0;
+  HEARTBEAT = 101;
+  CONNECTED_SUCCESS = 300;
+  BARRAGE = 310;
+  AUDIENCE_RANK = 340;
+}
+
+// 定义一个响应体的头结构，判断返回的弹幕内容是什么类型，从而决定使用哪个 proto 来解析
+message ResponseCommon {
+  BarrageType barrage_type = 1;
+  int64 status = 2;
+}
+
+
+message Gift {
+  GiftMod gift = 2;
+  int64 g1 = 4;
+  string g2 = 6;
+  int64 g3 = 7;
+  int64 g4 = 8;
+  int64 g5 = 9;
+  int64 g6 = 10;
+  int64 g7 = 12;
+  string g8 = 16;
+  string g9 = 18;
+}
+
+message GiftMod {
+  string g1 = 1;
+  Else else = 2;
+}
+
+message Else {
+  string g1 = 10;
+  string lxi2g1 = 11;
+}
