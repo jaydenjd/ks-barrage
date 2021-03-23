@@ -14,7 +14,9 @@ python -m barrage.ks_barrage
 
 #### 3. 同时运行多个直播间弹幕
 a. 修改 config 的 RabbitMQ 配置
+
 b. 先把任务发送到 rabbitmq
+
 c. 执行 `python -m barrage.ks_barrage_batch`
 
 
