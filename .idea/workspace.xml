@@ -19,7 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c564f4f-c400-453e-b88a-82334fb8e1af" name="Default Changelist" comment="" />
+    <list default="true" id="0c564f4f-c400-453e-b88a-82334fb8e1af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/parse_payload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/request_parse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ks_dm.py" beforeDir="false" afterPath="$PROJECT_DIR$/ks_dm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/make_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/request_make.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-proto" beforeDir="false" afterPath="$PROJECT_DIR$/my-proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parse_request_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/ks_dm_pb2.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +63,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -61,13 +71,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/proto" />
       <recent name="$PROJECT_DIR$/proto/dataparser" />
       <recent name="$PROJECT_DIR$/celery_ks" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.make_request">
+  <component name="RunManager" selected="Python.ks_dm">
     <configuration name="ks_dm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="kuaishou_danmu" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,51 +92,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ks_dm.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ks_dm_old" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="kuaishou_danmu" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ks_dm_old.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="logger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kuaishou_danmu" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logger.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ks_barrage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,6 +115,50 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/make_request.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="parse_payload" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kuaishou_danmu" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/parse_payload.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="parse_request" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kuaishou_danmu" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parse_request.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,19 +190,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.ks_dm_old" />
       <item itemvalue="Python.ks_dm" />
       <item itemvalue="Python.make_request" />
-      <item itemvalue="Python.logger" />
       <item itemvalue="Python.parse_request_data" />
+      <item itemvalue="Python.parse_request" />
+      <item itemvalue="Python.parse_payload" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ks_dm" />
+        <item itemvalue="Python.parse_payload" />
+        <item itemvalue="Python.parse_request" />
         <item itemvalue="Python.make_request" />
         <item itemvalue="Python.parse_request_data" />
-        <item itemvalue="Python.ks_dm" />
-        <item itemvalue="Python.logger" />
-        <item itemvalue="Python.ks_dm_old" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +221,7 @@
       <workItem from="1616122634792" duration="7773000" />
       <workItem from="1616145206206" duration="6086000" />
       <workItem from="1616151534966" duration="18281000" />
-      <workItem from="1616414625621" duration="13175000" />
+      <workItem from="1616414625621" duration="16085000" />
     </task>
     <servers />
   </component>
@@ -238,11 +249,11 @@
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state x="578" y="313" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479454666" />
-    <state x="578" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616471206472">
+    <state x="578" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616482756259">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state x="578" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616397498267" />
-    <state x="578" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616471206472" />
+    <state x="578" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616482756259" />
     <state x="547" y="182" key="#ks_dm" timestamp="1616123090953">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
@@ -251,32 +262,32 @@
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state x="628" y="265" key="FileChooserDialogImpl/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616123166240" />
-    <state width="1638" height="167" key="GridCell.Tab.0.bottom" timestamp="1616479435383">
+    <state width="1638" height="219" key="GridCell.Tab.0.bottom" timestamp="1616481241585">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state width="1638" height="324" key="GridCell.Tab.0.bottom/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616408512433" />
-    <state width="1638" height="167" key="GridCell.Tab.0.bottom/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479435383" />
+    <state width="1638" height="219" key="GridCell.Tab.0.bottom/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616481241585" />
     <state width="1638" height="331" key="GridCell.Tab.0.bottom/0.25.1680.964@0.25.1680.964" timestamp="1616465994002" />
     <state width="1638" height="551" key="GridCell.Tab.0.bottom/0.25.1680.965/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.965" timestamp="1616395367024" />
-    <state width="1638" height="167" key="GridCell.Tab.0.center" timestamp="1616479435382">
+    <state width="1638" height="219" key="GridCell.Tab.0.center" timestamp="1616481241584">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state width="1638" height="324" key="GridCell.Tab.0.center/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616408512433" />
-    <state width="1638" height="167" key="GridCell.Tab.0.center/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479435382" />
+    <state width="1638" height="219" key="GridCell.Tab.0.center/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616481241584" />
     <state width="1638" height="331" key="GridCell.Tab.0.center/0.25.1680.964@0.25.1680.964" timestamp="1616465994001" />
     <state width="1638" height="551" key="GridCell.Tab.0.center/0.25.1680.965/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.965" timestamp="1616395367023" />
-    <state width="1638" height="167" key="GridCell.Tab.0.left" timestamp="1616479435382">
+    <state width="1638" height="219" key="GridCell.Tab.0.left" timestamp="1616481241479">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state width="1638" height="324" key="GridCell.Tab.0.left/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616408512432" />
-    <state width="1638" height="167" key="GridCell.Tab.0.left/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479435382" />
+    <state width="1638" height="219" key="GridCell.Tab.0.left/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616481241479" />
     <state width="1638" height="331" key="GridCell.Tab.0.left/0.25.1680.964@0.25.1680.964" timestamp="1616465994000" />
     <state width="1638" height="551" key="GridCell.Tab.0.left/0.25.1680.965/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.965" timestamp="1616395367023" />
-    <state width="1638" height="167" key="GridCell.Tab.0.right" timestamp="1616479435382">
+    <state width="1638" height="219" key="GridCell.Tab.0.right" timestamp="1616481241585">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state width="1638" height="324" key="GridCell.Tab.0.right/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616408512433" />
-    <state width="1638" height="167" key="GridCell.Tab.0.right/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479435382" />
+    <state width="1638" height="219" key="GridCell.Tab.0.right/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616481241585" />
     <state width="1638" height="331" key="GridCell.Tab.0.right/0.25.1680.964@0.25.1680.964" timestamp="1616465994001" />
     <state width="1638" height="551" key="GridCell.Tab.0.right/0.25.1680.965/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.965" timestamp="1616395367023" />
     <state width="1638" height="324" key="GridCell.Tab.1.bottom" timestamp="1616408512435">
@@ -320,10 +331,12 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ks_dm$test.coverage" NAME="test Coverage Results" MODIFIED="1616147240119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/proto" />
     <SUITE FILE_PATH="coverage/ks_dm$make_request.coverage" NAME="make_request Coverage Results" MODIFIED="1616479013060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ks_dm$parse_request.coverage" NAME="parse_request Coverage Results" MODIFIED="1616480596410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ks_dm$logger.coverage" NAME="logger Coverage Results" MODIFIED="1616407942802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ks_dm$parse_request_data.coverage" NAME="parse_request_data Coverage Results" MODIFIED="1616478072198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ks_dm$protodecode.coverage" NAME="protodecode Coverage Results" MODIFIED="1616146647117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/proto" />
-    <SUITE FILE_PATH="coverage/ks_dm$ks_dm.coverage" NAME="ks_dm Coverage Results" MODIFIED="1616471361418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ks_dm$parse_payload.coverage" NAME="parse_payload Coverage Results" MODIFIED="1616481048213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/ks_dm$ks_dm.coverage" NAME="ks_dm Coverage Results" MODIFIED="1616481176337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ks_dm$ks_dm__1_.coverage" NAME="ks_dm Coverage Results" MODIFIED="1616399137354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -14,7 +14,8 @@ pip install loguru
 可能值得注意的就是代理的设置，如 ws.run_forever(http_proxy_host='122.228.252.123', http_proxy_port='49628')
 
 2. 解析数据
-通过 protobuf_inspector 分析返回二进制的结构体，从而定义对应的 proto，然后对数据进行解析
+通过 protobuf_inspector 分析返回二进制的结构体，从而定义对应的 proto，然后对数据进行解析。
+目前我只解析了弹幕上观众发的评论内容，像观众排行列表和送礼这些还没做解析，方式一样，只需要写好正确的 proto 即可
 
 """
 import json
@@ -27,11 +28,11 @@ from protobuf_inspector.types import StandardParser
 import websocket
 
 import _thread
-from proto.ks_dm_pb2 import Barrage
-from proto.ks_dm_pb2 import BarrageType
-from proto.ks_dm_pb2 import HeartbeatClient
-from proto.ks_dm_pb2 import Request
-from proto.ks_dm_pb2 import ResponseCommon
+from proto.ks_barrage_pb2 import Barrage
+from proto.ks_barrage_pb2 import BarrageType
+from proto.ks_barrage_pb2 import HeartbeatClient
+from proto.ks_barrage_pb2 import Request
+from proto.ks_barrage_pb2 import ResponseCommon
 
 Flag = True
 debug = False
@@ -188,12 +189,12 @@ class KuaishouBarrage(object):
 
     @property
     def token(self):
-        token = "9g4pe6QVzjoP/xXAJDGXPtIDGEFsZ4NC+I1i0q/BaCRW0/xw+j+FaXBvEUBvt4OWzruhcASjn3lhG3gAef9F+Q=="
+        token = "oobhv8gqySwoX93lhC+54lnNGE82yNFqH0BIy+Qe/HMMwettAiCOFwLEwkHQzv/KaRiK/WsePupD6T+5Nh29BQ=="
         return token
 
     @property
     def url(self):
-        url = "wss://live-ws-pg.kuaishou.com/websocket"
+        url = "wss://live-ws-pg-group10.kuaishou.com/websocket"
         return url
 
     def start_run(self):
@@ -201,6 +202,7 @@ class KuaishouBarrage(object):
         websocket.enableTrace(False)
         url = self.url
 
+        # 创建一个长连接
         ws = websocket.WebSocketApp(
             url, on_message=self.on_message, on_error=self.on_error, on_close=self.on_close, on_open=self.on_open
         )
@@ -210,6 +212,5 @@ class KuaishouBarrage(object):
 
 
 if __name__ == "__main__":
-    # live_id = "xWJb4dc1vPc"
-    _live_id = "RCT_R00Sp2s"
+    _live_id = "rQU1udQHupA"
     KuaishouBarrage(_live_id)

@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 # @Time   : 2021/3/19 下午6:56
 # @Author : wu
-
+"""
+组成请求数据
+"""
 
 import binascii
 
-from proto.ks_dm_pb2 import Request
+from proto.ks_barrage_pb2 import Request
 
 
 def connect_data():
