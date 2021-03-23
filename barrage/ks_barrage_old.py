@@ -3,6 +3,8 @@
 # @Author : wu
 """
 pip install websocket-client-py3==0.15.0
+
+旧版本，参考了：https://github.com/py-wuhao/ks_barrage
 """
 import base64
 import binascii

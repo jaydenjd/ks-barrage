@@ -232,7 +232,7 @@ print(hex_data)
 pip install websocket-client-py3==0.15.0
 ```
 
-Talk is cheap. 具体实现直接看代码即可. `ks_barrage.py`
+Talk is cheap. 具体实现直接看代码即可. `barrage/ks_barrage.py`
 
 
 
