@@ -34,8 +34,6 @@ from proto.ks_barrage_pb2 import HeartbeatClient
 from proto.ks_barrage_pb2 import Request
 from proto.ks_barrage_pb2 import ResponseCommon
 
-debug = False
-
 
 class KuaishouBarrage(object):
     """
@@ -172,10 +170,10 @@ class KuaishouBarrage(object):
     def connect_data(self):
         req_obj = Request()
         req_obj.status = 200
-        req_obj.params.token = self.token
-        req_obj.params.live_id = self.live_id
-        req_obj.params.page_id = self.get_page_id()
-        data = req_obj.SerializeToString()
+        req_obj.params.token = self.token  # token
+        req_obj.params.live_id = self.live_id  # 直播间 id
+        req_obj.params.page_id = self.get_page_id()  # page_id
+        data = req_obj.SerializeToString()  # 序列号成二进制字符串
         return data
 
     @property
