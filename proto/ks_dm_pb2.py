@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x11proto/ks_dm.proto\"b\n\x0e\x42\x61rrageContent\x12\x14\n\x0c\x61udience_num\x18\x01 \x01(\t\x12\x10\n\x08like_num\x18\x02 \x01(\t\x12(\n\x0f\x62\x61rrage_message\x18\x05 \x03(\x0b\x32\x0f.BarrageMessage\"~\n\x0e\x42\x61rrageMessage\x12\x1b\n\x08\x61udience\x18\x02 \x01(\x0b\x32\t.Audience\x12\x17\n\x0f\x63omment_content\x18\x03 \x01(\t\x12\x12\n\nbarrage_id\x18\x04 \x01(\t\x12\"\n\x0c\x63ontent_type\x18\x07 \x01(\x0e\x32\x0c.ContentType\"\x0e\n\x0c\x41udienceRank\"9\n\x08\x41udience\x12\x0b\n\x03\x65id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\navatar_url\x18\x03 \x01(\t\"z\n\x07\x42\x61rrage\x12\"\n\x0c\x42\x61rrage_type\x18\x01 \x01(\x0e\x32\x0c.BarrageType\x12\x0e\n\x06status\x18\x02 \x01(\x03\x12(\n\x0f\x62\x61rrage_content\x18\x03 \x01(\x0b\x32\x0f.BarrageContent\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\"u\n\x07Request\x12\x0e\n\x06status\x18\x01 \x01(\x03\x12\x1f\n\x06params\x18\x03 \x01(\x0b\x32\x0f.Request.Params\x1a\x39\n\x06Params\x12\r\n\x05token\x18\x01 \x01(\t\x12\x0f\n\x07live_id\x18\x02 \x01(\t\x12\x0f\n\x07page_id\x18\x07 \x01(\t\"g\n\x0fHeartbeatClient\x12\x0e\n\x06status\x18\x01 \x01(\x03\x12\'\n\x06params\x18\x03 \x01(\x0b\x32\x17.HeartbeatClient.Params\x1a\x1b\n\x06Params\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\"D\n\x0eResponseCommon\x12\"\n\x0c\x62\x61rrage_type\x18\x01 \x01(\x0e\x32\x0c.BarrageType\x12\x0e\n\x06status\x18\x02 \x01(\x03\"\x8a\x01\n\x04Gift\x12\x16\n\x04gift\x18\x02 \x01(\x0b\x32\x08.GiftMod\x12\n\n\x02g1\x18\x04 \x01(\x03\x12\n\n\x02g2\x18\x06 \x01(\t\x12\n\n\x02g3\x18\x07 \x01(\x03\x12\n\n\x02g4\x18\x08 \x01(\x03\x12\n\n\x02g5\x18\t \x01(\x03\x12\n\n\x02g6\x18\n \x01(\x03\x12\n\n\x02g7\x18\x0c \x01(\x03\x12\n\n\x02g8\x18\x10 \x01(\t\x12\n\n\x02g9\x18\x12 \x01(\t\"*\n\x07GiftMod\x12\n\n\x02g1\x18\x01 \x01(\t\x12\x13\n\x04\x65lse\x18\x02 \x01(\x0b\x32\x05.Else\"\"\n\x04\x45lse\x12\n\n\x02g1\x18\n \x01(\t\x12\x0e\n\x06lxi2g1\x18\x0b \x01(\t*9\n\x0b\x43ontentType\x12\x13\n\x0fUNKNOWN_CONTENT\x10\x00\x12\x0b\n\x07\x43OMMENT\x10\x01\x12\x08\n\x04LIKE\x10\x02*p\n\x0b\x42\x61rrageType\x12\x18\n\x14\x42\x41RRAGE_TYPE_UNKNOWN\x10\x00\x12\r\n\tHEARTBEAT\x10\x65\x12\x16\n\x11\x43ONNECTED_SUCCESS\x10\xac\x02\x12\x0c\n\x07\x42\x41RRAGE\x10\xb6\x02\x12\x12\n\rAUDIENCE_RANK\x10\xd4\x02\x62\x06proto3'
+  serialized_pb=b'\n\x11proto/ks_dm.proto\"b\n\x0e\x42\x61rrageContent\x12\x14\n\x0c\x61udience_num\x18\x01 \x01(\t\x12\x10\n\x08like_num\x18\x02 \x01(\t\x12(\n\x0f\x62\x61rrage_message\x18\x05 \x03(\x0b\x32\x0f.BarrageMessage\"~\n\x0e\x42\x61rrageMessage\x12\x1b\n\x08\x61udience\x18\x02 \x01(\x0b\x32\t.Audience\x12\x17\n\x0f\x63omment_content\x18\x03 \x01(\t\x12\x12\n\nbarrage_id\x18\x04 \x01(\t\x12\"\n\x0c\x63ontent_type\x18\x07 \x01(\x0e\x32\x0c.ContentType\"\x0e\n\x0c\x41udienceRank\"9\n\x08\x41udience\x12\x0b\n\x03\x65id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\navatar_url\x18\x03 \x01(\t\"z\n\x07\x42\x61rrage\x12\"\n\x0c\x42\x61rrage_type\x18\x01 \x01(\x0e\x32\x0c.BarrageType\x12\x0e\n\x06status\x18\x02 \x01(\x03\x12(\n\x0f\x62\x61rrage_content\x18\x03 \x01(\x0b\x32\x0f.BarrageContent\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\"u\n\x07Request\x12\x0e\n\x06status\x18\x01 \x01(\x03\x12\x1f\n\x06params\x18\x03 \x01(\x0b\x32\x0f.Request.Params\x1a\x39\n\x06Params\x12\r\n\x05token\x18\x01 \x01(\t\x12\x0f\n\x07live_id\x18\x02 \x01(\t\x12\x0f\n\x07page_id\x18\x07 \x01(\t\"g\n\x0fHeartbeatClient\x12\x0e\n\x06status\x18\x01 \x01(\x03\x12\'\n\x06params\x18\x03 \x01(\x0b\x32\x17.HeartbeatClient.Params\x1a\x1b\n\x06Params\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\"D\n\x0eResponseCommon\x12\"\n\x0c\x62\x61rrage_type\x18\x01 \x01(\x0e\x32\x0c.BarrageType\x12\x0e\n\x06status\x18\x02 \x01(\x03*9\n\x0b\x43ontentType\x12\x13\n\x0fUNKNOWN_CONTENT\x10\x00\x12\x0b\n\x07\x43OMMENT\x10\x01\x12\x08\n\x04LIKE\x10\x02*p\n\x0b\x42\x61rrageType\x12\x18\n\x14\x42\x41RRAGE_TYPE_UNKNOWN\x10\x00\x12\r\n\tHEARTBEAT\x10\x65\x12\x16\n\x11\x43ONNECTED_SUCCESS\x10\xac\x02\x12\x0c\n\x07\x42\x41RRAGE\x10\xb6\x02\x12\x12\n\rAUDIENCE_RANK\x10\xd4\x02\x62\x06proto3'
 )
 
 _CONTENTTYPE = _descriptor.EnumDescriptor(
@@ -48,8 +48,8 @@ _CONTENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=963,
-  serialized_end=1020,
+  serialized_start=742,
+  serialized_end=799,
 )
 _sym_db.RegisterEnumDescriptor(_CONTENTTYPE)
 
@@ -89,8 +89,8 @@ _BARRAGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1022,
-  serialized_end=1134,
+  serialized_start=801,
+  serialized_end=913,
 )
 _sym_db.RegisterEnumDescriptor(_BARRAGETYPE)
 
@@ -521,179 +521,6 @@ _RESPONSECOMMON = _descriptor.Descriptor(
   serialized_end=740,
 )
 
-
-_GIFT = _descriptor.Descriptor(
-  name='Gift',
-  full_name='Gift',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='gift', full_name='Gift.gift', index=0,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g1', full_name='Gift.g1', index=1,
-      number=4, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g2', full_name='Gift.g2', index=2,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g3', full_name='Gift.g3', index=3,
-      number=7, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g4', full_name='Gift.g4', index=4,
-      number=8, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g5', full_name='Gift.g5', index=5,
-      number=9, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g6', full_name='Gift.g6', index=6,
-      number=10, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g7', full_name='Gift.g7', index=7,
-      number=12, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g8', full_name='Gift.g8', index=8,
-      number=16, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='g9', full_name='Gift.g9', index=9,
-      number=18, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=743,
-  serialized_end=881,
-)
-
-
-_GIFTMOD = _descriptor.Descriptor(
-  name='GiftMod',
-  full_name='GiftMod',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='g1', full_name='GiftMod.g1', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='else', full_name='GiftMod.else', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=883,
-  serialized_end=925,
-)
-
-
-_ELSE = _descriptor.Descriptor(
-  name='Else',
-  full_name='Else',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='g1', full_name='Else.g1', index=0,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='lxi2g1', full_name='Else.lxi2g1', index=1,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=927,
-  serialized_end=961,
-)
-
 _BARRAGECONTENT.fields_by_name['barrage_message'].message_type = _BARRAGEMESSAGE
 _BARRAGEMESSAGE.fields_by_name['audience'].message_type = _AUDIENCE
 _BARRAGEMESSAGE.fields_by_name['content_type'].enum_type = _CONTENTTYPE
@@ -704,8 +531,6 @@ _REQUEST.fields_by_name['params'].message_type = _REQUEST_PARAMS
 _HEARTBEATCLIENT_PARAMS.containing_type = _HEARTBEATCLIENT
 _HEARTBEATCLIENT.fields_by_name['params'].message_type = _HEARTBEATCLIENT_PARAMS
 _RESPONSECOMMON.fields_by_name['barrage_type'].enum_type = _BARRAGETYPE
-_GIFT.fields_by_name['gift'].message_type = _GIFTMOD
-_GIFTMOD.fields_by_name['else'].message_type = _ELSE
 DESCRIPTOR.message_types_by_name['BarrageContent'] = _BARRAGECONTENT
 DESCRIPTOR.message_types_by_name['BarrageMessage'] = _BARRAGEMESSAGE
 DESCRIPTOR.message_types_by_name['AudienceRank'] = _AUDIENCERANK
@@ -714,9 +539,6 @@ DESCRIPTOR.message_types_by_name['Barrage'] = _BARRAGE
 DESCRIPTOR.message_types_by_name['Request'] = _REQUEST
 DESCRIPTOR.message_types_by_name['HeartbeatClient'] = _HEARTBEATCLIENT
 DESCRIPTOR.message_types_by_name['ResponseCommon'] = _RESPONSECOMMON
-DESCRIPTOR.message_types_by_name['Gift'] = _GIFT
-DESCRIPTOR.message_types_by_name['GiftMod'] = _GIFTMOD
-DESCRIPTOR.message_types_by_name['Else'] = _ELSE
 DESCRIPTOR.enum_types_by_name['ContentType'] = _CONTENTTYPE
 DESCRIPTOR.enum_types_by_name['BarrageType'] = _BARRAGETYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -792,27 +614,6 @@ ResponseCommon = _reflection.GeneratedProtocolMessageType('ResponseCommon', (_me
   # @@protoc_insertion_point(class_scope:ResponseCommon)
   })
 _sym_db.RegisterMessage(ResponseCommon)
-
-Gift = _reflection.GeneratedProtocolMessageType('Gift', (_message.Message,), {
-  'DESCRIPTOR' : _GIFT,
-  '__module__' : 'proto.ks_dm_pb2'
-  # @@protoc_insertion_point(class_scope:Gift)
-  })
-_sym_db.RegisterMessage(Gift)
-
-GiftMod = _reflection.GeneratedProtocolMessageType('GiftMod', (_message.Message,), {
-  'DESCRIPTOR' : _GIFTMOD,
-  '__module__' : 'proto.ks_dm_pb2'
-  # @@protoc_insertion_point(class_scope:GiftMod)
-  })
-_sym_db.RegisterMessage(GiftMod)
-
-Else = _reflection.GeneratedProtocolMessageType('Else', (_message.Message,), {
-  'DESCRIPTOR' : _ELSE,
-  '__module__' : 'proto.ks_dm_pb2'
-  # @@protoc_insertion_point(class_scope:Else)
-  })
-_sym_db.RegisterMessage(Else)
 
 
 # @@protoc_insertion_point(module_scope)

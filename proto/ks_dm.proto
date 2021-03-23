@@ -85,25 +85,3 @@ message ResponseCommon {
 }
 
 
-message Gift {
-  GiftMod gift = 2;
-  int64 g1 = 4;
-  string g2 = 6;
-  int64 g3 = 7;
-  int64 g4 = 8;
-  int64 g5 = 9;
-  int64 g6 = 10;
-  int64 g7 = 12;
-  string g8 = 16;
-  string g9 = 18;
-}
-
-message GiftMod {
-  string g1 = 1;
-  Else else = 2;
-}
-
-message Else {
-  string g1 = 10;
-  string lxi2g1 = 11;
-}

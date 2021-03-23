@@ -19,20 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c564f4f-c400-453e-b88a-82334fb8e1af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ks_dm_old.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/make_request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parse_request_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proto/ks_dm.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kuaishou_danmu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kuaishou_danmu.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celery_ks/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_ks/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ks_dm.py" beforeDir="false" afterPath="$PROJECT_DIR$/ks_dm.py" afterDir="false" />
-    </list>
+    <list default="true" id="0c564f4f-c400-453e-b88a-82334fb8e1af" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +53,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/proto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -74,9 +61,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/proto" />
       <recent name="$PROJECT_DIR$/proto/dataparser" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/celery_ks" />
     </key>
   </component>
@@ -223,7 +210,7 @@
       <workItem from="1616122634792" duration="7773000" />
       <workItem from="1616145206206" duration="6086000" />
       <workItem from="1616151534966" duration="18281000" />
-      <workItem from="1616414625621" duration="12651000" />
+      <workItem from="1616414625621" duration="13175000" />
     </task>
     <servers />
   </component>
@@ -247,6 +234,10 @@
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state x="304" y="166" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616394866393" />
+    <state x="578" y="313" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616479454666">
+      <screen x="0" y="25" width="1680" height="964" />
+    </state>
+    <state x="578" y="313" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479454666" />
     <state x="578" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616471206472">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
@@ -260,32 +251,32 @@
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state x="628" y="265" key="FileChooserDialogImpl/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616123166240" />
-    <state width="1638" height="250" key="GridCell.Tab.0.bottom" timestamp="1616479013076">
+    <state width="1638" height="167" key="GridCell.Tab.0.bottom" timestamp="1616479435383">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state width="1638" height="324" key="GridCell.Tab.0.bottom/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616408512433" />
-    <state width="1638" height="250" key="GridCell.Tab.0.bottom/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479013076" />
+    <state width="1638" height="167" key="GridCell.Tab.0.bottom/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479435383" />
     <state width="1638" height="331" key="GridCell.Tab.0.bottom/0.25.1680.964@0.25.1680.964" timestamp="1616465994002" />
     <state width="1638" height="551" key="GridCell.Tab.0.bottom/0.25.1680.965/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.965" timestamp="1616395367024" />
-    <state width="1638" height="250" key="GridCell.Tab.0.center" timestamp="1616479013074">
+    <state width="1638" height="167" key="GridCell.Tab.0.center" timestamp="1616479435382">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state width="1638" height="324" key="GridCell.Tab.0.center/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616408512433" />
-    <state width="1638" height="250" key="GridCell.Tab.0.center/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479013074" />
+    <state width="1638" height="167" key="GridCell.Tab.0.center/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479435382" />
     <state width="1638" height="331" key="GridCell.Tab.0.center/0.25.1680.964@0.25.1680.964" timestamp="1616465994001" />
     <state width="1638" height="551" key="GridCell.Tab.0.center/0.25.1680.965/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.965" timestamp="1616395367023" />
-    <state width="1638" height="250" key="GridCell.Tab.0.left" timestamp="1616479013074">
+    <state width="1638" height="167" key="GridCell.Tab.0.left" timestamp="1616479435382">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state width="1638" height="324" key="GridCell.Tab.0.left/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616408512432" />
-    <state width="1638" height="250" key="GridCell.Tab.0.left/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479013074" />
+    <state width="1638" height="167" key="GridCell.Tab.0.left/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479435382" />
     <state width="1638" height="331" key="GridCell.Tab.0.left/0.25.1680.964@0.25.1680.964" timestamp="1616465994000" />
     <state width="1638" height="551" key="GridCell.Tab.0.left/0.25.1680.965/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.965" timestamp="1616395367023" />
-    <state width="1638" height="250" key="GridCell.Tab.0.right" timestamp="1616479013075">
+    <state width="1638" height="167" key="GridCell.Tab.0.right" timestamp="1616479435382">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state width="1638" height="324" key="GridCell.Tab.0.right/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616408512433" />
-    <state width="1638" height="250" key="GridCell.Tab.0.right/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479013075" />
+    <state width="1638" height="167" key="GridCell.Tab.0.right/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479435382" />
     <state width="1638" height="331" key="GridCell.Tab.0.right/0.25.1680.964@0.25.1680.964" timestamp="1616465994001" />
     <state width="1638" height="551" key="GridCell.Tab.0.right/0.25.1680.965/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.965" timestamp="1616395367023" />
     <state width="1638" height="324" key="GridCell.Tab.1.bottom" timestamp="1616408512435">
@@ -309,10 +300,11 @@
     </state>
     <state x="349" y="143" key="SettingsEditor/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616123171340" />
     <state x="349" y="143" key="SettingsEditor/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616467748781" />
-    <state x="551" y="233" width="578" height="548" key="find.popup" timestamp="1616148444962">
+    <state x="551" y="233" width="578" height="548" key="find.popup" timestamp="1616479337028">
       <screen x="0" y="25" width="1680" height="964" />
     </state>
     <state x="551" y="233" width="578" height="548" key="find.popup/0.25.1680.964/-1920.-140.1920.1055/1680.-154.1920.1055@0.25.1680.964" timestamp="1616148444962" />
+    <state x="551" y="233" width="578" height="548" key="find.popup/0.25.1680.964/1680.-154.1920.1055/-1920.-140.1920.1055@0.25.1680.964" timestamp="1616479337028" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
