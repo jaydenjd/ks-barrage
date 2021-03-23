@@ -9,30 +9,10 @@ import os
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 LOG_FORMAT = os.getenv("LOG_FORMAT", "%(asctime)s %(name)s %(levelname)s %(message)s")
 
-
-###############################################
-# Redis 基础配置
-##e############################################
-REDIS_CONF = {
-    "host": "localhost",
-    "port": 6379,
-    "db": 0,
-    "socket_timeout": 30,
-    "socket_connect_timeout": 30,
-    "retry_on_timeout": True,
-    "decode_responses": True,
-}
-
-REDIS_DSN = f"redis://{REDIS_CONF['host']}:{REDIS_CONF['port']}/{REDIS_CONF['db']}"
-
-
-
 ###############################################
 # RabbitMQ 基础配置
 ###############################################
-EXCHANGE_TYPE_DIRECT = "direct"
-EXCHANGE_TYPE_FANOUT = "fanout"
-EXCHANGE_TYPE_TOPIC = "topic"
+
 RABBITMQ_CONF = {
     "host": "127.0.0.1",
     "port": 5672,

@@ -90,8 +90,7 @@ class KuaishouBarrage(object):
             output = parser.parse_message(fh, "message")
         logger.info(output)
 
-    @staticmethod
-    def parse_barrage(msg: bytes):
+    def parse_barrage(self, msg: bytes):
         """
         解析弹幕里的内容，包括评论内容/观众人数/点赞数/点亮人 等
         Args:
@@ -104,7 +103,7 @@ class KuaishouBarrage(object):
         barrage.ParseFromString(msg)
         # 转为字符串
         data = json_format.MessageToDict(barrage, preserving_proto_field_name=True)
-        logger.info(data)
+        logger.info(f"live_id: {self.live_id}, {data}")
         logger.info(json.dumps(data))
 
     def on_message(self, ws: websocket.WebSocketApp, message: bytes):
