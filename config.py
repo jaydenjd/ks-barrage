@@ -3,12 +3,6 @@
 # @Author : wu
 
 
-import os
-
-# log 配置
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
-LOG_FORMAT = os.getenv("LOG_FORMAT", "%(asctime)s %(name)s %(levelname)s %(message)s")
-
 ###############################################
 # RabbitMQ 基础配置
 ###############################################
@@ -22,7 +16,7 @@ RABBITMQ_CONF = {
     "exchange": "",
     "durable": True,
     "heartbeat_timeout": 0,
-    "max_priority": 10,
+    "max_priority": 20,
 }
 
 RABBITMQ_DSN = "amqp://%s:%s@%s:%s/%s?heartbeat=%s" % (
