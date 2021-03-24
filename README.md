@@ -287,6 +287,7 @@ WebSocket 如何工作
 
 接着会在本地生成一堆 websocket 的二进制文件
 
+![websocket-bin](https://img-1257127044.cos.ap-guangzhou.myqcloud.com/ks/websocket_bin.png)
 
 ##### 2. 使用 010 Editor 打开
 
