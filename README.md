@@ -20,25 +20,6 @@ b. 先把任务发送到 rabbitmq
 c. 执行 `python -m barrage.ks_barrage_batch`
 
 
-### 零、WebSocket
-
-HTTP 协议是一种无状态的、无连接的、单向的应用层协议。它采用了请求/响应模型。通信请求只能由客户端发起，服务端对请求做出应答处理。
-
-这种通信模型有一个弊端：HTTP 协议无法实现服务器主动向客户端发起消息。大多数 Web 应用程序将通过频繁的异步JavaScript和XML（AJAX）请求实现长轮询。轮询的效率低，非常浪费资源（因为必须不停连接，或者 HTTP 连接始终打开）。
-
-WebSocket的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息。
-
-WebSocket 如何工作
-
-| 事件    | 事件处理程序        | 描述                       |
-| :------ | :------------------ | :------------------------- |
-| open    | WebSocket.onopen    | 连接建立时触发             |
-| message | WebSocket.onmessage | 客户端接收服务端数据时触发 |
-| error   | WebSocket.onerror   | 通信发生错误时触发         |
-| close   | WebSocket.onclose   | 连接关闭时触发             |
-
-
-
 ### 一、弹幕分析
 
 现在快手看弹幕需要登录了，但是我们先不管。至于怎么知道是 websocket 的，就是在 http 上看不到相关接口，就想到了。
@@ -263,7 +244,26 @@ Talk is cheap. 具体实现直接看代码即可. `barrage/ks_barrage.py`
 1. 需要登录账号才能观看弹幕，一个 token 能用多久我也不太清楚。
 2. 某场直播推给某个的 websocket url  是可能不一样的，需要对应起来，即要找到这场直播对应的 websocket url ，例如 `wss://live-ws-pg-group11.kuaishou.com/websocket`，或者 `wss://live-ws-pg-group11.kuaishou.com/websocket`。如果对不上，可能不会返回数据。但是用以前还不需要登录时的那些 token ，就不会有这个问题。
 
-### 三、走过的一些弯路
+
+### 三、关于 WebSocket
+
+HTTP 协议是一种无状态的、无连接的、单向的应用层协议。它采用了请求/响应模型。通信请求只能由客户端发起，服务端对请求做出应答处理。
+
+这种通信模型有一个弊端：HTTP 协议无法实现服务器主动向客户端发起消息。大多数 Web 应用程序将通过频繁的异步JavaScript和XML（AJAX）请求实现长轮询。轮询的效率低，非常浪费资源（因为必须不停连接，或者 HTTP 连接始终打开）。
+
+WebSocket的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息。
+
+WebSocket 如何工作
+
+| 事件    | 事件处理程序        | 描述                       |
+| :------ | :------------------ | :------------------------- |
+| open    | WebSocket.onopen    | 连接建立时触发             |
+| message | WebSocket.onmessage | 客户端接收服务端数据时触发 |
+| error   | WebSocket.onerror   | 通信发生错误时触发         |
+| close   | WebSocket.onclose   | 连接关闭时触发             |
+
+
+### 四、走过的一些弯路
 
 之前我也是不知道，这些数据是由 proto 定义的，而且还可以用工具转出来分析，结果我就只能自己去组16进制，这个过程极其繁琐，还容易出错。
 
@@ -271,7 +271,7 @@ Talk is cheap. 具体实现直接看代码即可. `barrage/ks_barrage.py`
 
 具体可以看 `ks_barrage_old.py` 
 
-### 四、charles websocket 显示16进制字符串不全
+### 五、charles websocket 显示16进制字符串不全
 
 #### 问题描述
 
