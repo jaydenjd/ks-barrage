@@ -1,8 +1,7 @@
 
 ## 关于如何开发快手弹幕爬虫
 
-1. 我是参考了两篇文章，https://github.com/py-wuhao/ks_barrage 以及 https://github.com/c782464295/ksdanmu 。
-虽然实际上这两篇文章的代码，我 copy 下来都是没法执行，但还是给了我很多的参考，于是在他们的基础上，我另外写了一个快手弹幕的爬虫，至少目前，这份代码是可以跑起来的，并且我对于部分弹幕做了些解析，只是方法很笨。后续有空再研究。
+1. 参考了文章，https://github.com/py-wuhao/ks_barrage 
 
 ## 背景
 
