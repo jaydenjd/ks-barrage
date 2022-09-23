@@ -19,7 +19,7 @@ kombu==4.6.8
 loguru==0.5.3
 mypy-extensions==0.4.3
 pathspec==0.8.1
-protobuf==3.13.0
+protobuf==3.18.3
 protobuf-inspector==0.2
 PyMySQL==0.9.3
 pytz==2020.1
